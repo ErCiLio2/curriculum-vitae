@@ -127,9 +127,9 @@
       <div class="exp-role">Engenheiro Full Stack Sénior</div>
       <ul>
         <li>Entrega de 5+ produtos SaaS em produção: ERP multi-tenant, fintech, e-learning, on-demand e B2B commerce.</li>
-        <li>Desenvolveu o <strong>Troco Seguro</strong> — fintech com pagamentos QR, carteira digital e gestão de frotas (~180 endpoints, AES-256-GCM, CI com GitHub Actions).</li>
-        <li>Construiu o <strong>FlyPort</strong> — SaaS B2B integrado com GDS Travelport, com +5 700 testes pytest em 8 fatias CI paralelas e Django-Q com 9 tarefas em produção.</li>
+        <li>Desenvolveu plataforma fintech com pagamentos QR, carteira digital e gestão de frotas (~180 endpoints, AES-256-GCM, CI com GitHub Actions).</li>
         <li>Arquitectou o <strong>MESA Platform</strong> — ERP SaaS multi-sector com isolamento por schema PostgreSQL e flavors configuráveis por tenant.</li>
+        <li>Construiu o <strong>WOL Commerce</strong> — B2B e live commerce em produção, com analytics de raiz e gestão de media em MinIO.</li>
       </ul>
     </div>
 
@@ -143,6 +143,18 @@
         <li>Gestão completa do parque informático: servidores, redes TCP/IP, virtualização, DNS e suporte remoto (AnyDesk).</li>
         <li>Desenvolvimento de aplicações internas em Laravel/PHP e Node.js com deploy Docker em VPS.</li>
         <li>Implementação e manutenção de sistemas operativos, impressoras e software aplicacional.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-org">ChimGam</span>
+        <span class="exp-period">2024 – presente · Luanda</span>
+      </div>
+      <div class="exp-role">QA Engineer · Tech Leader</div>
+      <ul>
+        <li>QA e liderança técnica no <strong>FlyPort</strong> — SaaS B2B para agências de viagens integrado com GDS Travelport.</li>
+        <li>+5 700 testes pytest em CI paralelo; OpenAPI 3.1 gerado do código; Django-Q com 9 tarefas em produção.</li>
       </ul>
     </div>
 
@@ -164,12 +176,12 @@
 
     <div class="proj-item">
       <div class="proj-top">
-        <span class="proj-name">Troco Seguro — Fintech &amp; Gestão de Frotas</span>
+        <span class="proj-name">Plataforma Fintech &amp; Gestão de Frotas</span>
         <span class="proj-status">Em produção · Angola</span>
       </div>
       <div class="proj-stack">NestJS 11 · React · Tailwind CSS 4 · PostgreSQL · Redis · MinIO · Firebase · WhatsApp Cloud API · Docker</div>
       <div class="proj-desc">
-        Plataforma de pagamentos (QR, Multicaixa, carteira digital) e gestão de frotas de transporte com três superfícies: app mobile, painel web e API pública Troco Pay.
+        Pagamentos digitais (QR, Multicaixa, carteira) e gestão de frotas de transporte com três superfícies: app mobile, painel web e API pública de pagamentos.
         <ul>
           <li>Anti-replay duplo, HMAC-SHA256, AES-256-GCM, locks pessimistas com retry em deadlock, idempotência por header.</li>
           <li>KYC via QR do BI, pânico/GPS, notificações multicanal. Jest + Playwright E2E em CI com GitHub Actions.</li>
@@ -180,16 +192,25 @@
     <div class="proj-item">
       <div class="proj-top">
         <span class="proj-name">FlyPort — SaaS B2B para Agências de Viagens</span>
-        <span class="proj-status">flyport.tech · Em produção</span>
+        <span class="proj-status">flyport.tech · Em produção · ChimGam</span>
       </div>
       <div class="proj-stack">Django 6 · React 19 · PostgreSQL · Redis · Travelport GDS · Fabric.js · Docker · Nginx · Cloudflare</div>
       <div class="proj-desc">
-        Integra GDS Travelport para ler PNRs e gerar bilhetes PDF com branding da agência via editor canvas. Modelo Trial/Starter/Pro.
+        SaaS B2B integrado com GDS Travelport para leitura de PNRs e geração de bilhetes PDF com branding da agência via editor canvas. <em>Papel: QA Engineer → Tech Leader.</em>
         <ul>
           <li>+5 700 testes pytest; CI em 8 fatias paralelas; OpenAPI 3.1 do código; migração progressiva Django → SPA React 19.</li>
           <li>Django-Q com 9 tarefas activas em produção; import-linter para fronteiras de domínio; Gunicorn/Uvicorn + Nginx.</li>
         </ul>
       </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <span class="proj-name">WOL Commerce / WOL Loja</span>
+        <span class="proj-status">Em produção · SOMATEC</span>
+      </div>
+      <div class="proj-stack">TypeScript · NestJS · React · MinIO · PostgreSQL</div>
+      <div class="proj-desc">Plataforma B2B e live commerce em produção. Módulo de analytics construído de raiz; gestão centralizada de media em MinIO. Dashboard de vendas e inventário.</div>
     </div>
 
     <div class="proj-item">
