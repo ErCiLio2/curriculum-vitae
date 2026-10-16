@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Ercílio Teixeira Júlio — CV 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:  #1B2A4A;
+    --blue:  #2563EB;
+    --teal:  #0D9488;
+    --text:  #1E293B;
+    --muted: #64748B;
+    --line:  #E2E8F0;
+    --bg:    #F8FAFC;
+  }
+
+  html { font-size: 9.5pt; }
+
+  body {
+    font-family: 'Calibri', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: #fff;
+    max-width: 210mm;
+    margin: 0 auto;
+    line-height: 1.45;
+  }
+
+  /* HEADER */
+  .cv-header { background: var(--navy); color: #fff; padding: 1.5rem 1.8rem 1.2rem; }
+  .cv-header h1 { font-size: 1.9rem; font-weight: 700; letter-spacing: -.02em; margin-bottom: .2rem; }
+  .cv-header .title { font-size: .97rem; color: #93C5FD; font-weight: 500; margin-bottom: .6rem; }
+  .cv-header .contacts { display: flex; flex-wrap: wrap; gap: .18rem 1.3rem; font-size: .79rem; color: #CBD5E1; }
+  .cv-header .contacts a { color: #CBD5E1; text-decoration: none; }
+
+  /* BODY */
+  .cv-body { padding: 1.1rem 1.8rem 1.3rem; }
+  section { margin-bottom: .9rem; }
+
+  h2 {
+    font-size: .67rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .13em; color: var(--blue);
+    border-left: 3px solid var(--blue); padding-left: .5rem;
+    margin-bottom: .5rem;
+  }
+
+  /* SUMÁRIO */
+  .summary p { font-size: .87rem; color: var(--text); line-height: 1.65; }
+
+  /* EXPERIÊNCIA */
+  .exp-item { margin-bottom: .65rem; padding-bottom: .65rem; border-bottom: 1px solid var(--line); }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .08rem; }
+  .exp-org { font-weight: 700; font-size: .91rem; color: var(--navy); }
+  .exp-period { font-size: .77rem; color: var(--muted); white-space: nowrap; }
+  .exp-role { font-size: .82rem; color: var(--teal); font-weight: 600; margin-bottom: .22rem; }
+  .exp-item ul { padding-left: 1rem; }
+  .exp-item ul li { font-size: .83rem; color: var(--text); margin-bottom: .09rem; line-height: 1.5; list-style: disc; }
+  .exp-item ul li strong { color: var(--navy); }
+
+  /* PROJECTOS */
+  .proj-item { margin-bottom: .6rem; }
+  .proj-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .04rem; }
+  .proj-name { font-weight: 700; font-size: .89rem; color: var(--navy); }
+  .proj-status { font-size: .75rem; color: var(--muted); }
+  .proj-stack { font-size: .75rem; color: var(--blue); margin-bottom: .1rem; font-weight: 500; }
+  .proj-desc { font-size: .82rem; color: var(--text); line-height: 1.5; }
+  .proj-desc ul { padding-left: 1rem; margin-top: .07rem; }
+  .proj-desc ul li { list-style: disc; margin-bottom: .05rem; }
+
+  /* COMPETÊNCIAS */
+  .skills-wrap { background: var(--bg); border-radius: 4px; padding: .5rem .65rem; display: grid; grid-template-columns: 1fr 1fr; gap: .2rem .8rem; }
+  .skill-row { font-size: .8rem; color: var(--text); line-height: 1.4; }
+  .skill-row strong { color: var(--navy); font-weight: 600; }
+
+  /* FORMAÇÃO */
+  .edu-item { margin-bottom: .45rem; }
+  .edu-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .edu-inst { font-weight: 700; font-size: .89rem; color: var(--navy); }
+  .edu-period { font-size: .77rem; color: var(--muted); }
+  .edu-degree { font-size: .82rem; color: var(--text); }
+  .edu-detail { font-size: .76rem; color: var(--muted); margin-top: .03rem; line-height: 1.45; }
+
+  /* BOTTOM GRID */
+  .bottom-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0 1.2rem; }
+  .certs { font-size: .81rem; color: var(--text); line-height: 1.7; }
+  .events-langs { font-size: .81rem; color: var(--text); line-height: 1.7; }
+
+  /* PRINT */
+  @page { size: A4; margin: 0; }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .exp-item, .proj-item, .edu-item { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cv-header">
+  <h1>Ercílio Teixeira Júlio</h1>
+  <div class="title">Engenheiro de Software Full Stack &nbsp;·&nbsp; COO &amp; Co-Founder @ SOMATEC</div>
+  <div class="contacts">
+    <span>erciliociu@gmail.com</span>
+    <span>+244 973 087 388</span>
+    <span>Luanda, Angola</span>
+    <a href="https://linkedin.com/in/erciliojulio">linkedin.com/in/erciliojulio</a>
+    <a href="https://github.com/ErCiLio2">github.com/ErCiLio2</a>
+  </div>
+</div>
+
+<div class="cv-body">
+
+  <section class="summary">
+    <h2>Sumário Profissional</h2>
+    <p>Engenheiro Full Stack com mais de 8 anos em TI e 3 anos a desenvolver software profissionalmente. Cofundador e COO da SOMATEC, onde lidera a entrega de plataformas SaaS, fintech e ERP para o mercado angolano — da infraestrutura ao interface. Especializado em arquitecturas multi-tenant, sistemas de pagamento e APIs de alta disponibilidade, com historial sólido em produção. Formação em programação de sistemas pela 42 Luanda (nível 5.13/21).</p>
+  </section>
+
+  <section>
+    <h2>Experiência Profissional</h2>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-org">SOMATEC — Software Marketing e Tecnologia</span>
+        <span class="exp-period">Jan 2023 – presente · Luanda</span>
+      </div>
+      <div class="exp-role">Cofundador &amp; COO · Engenheiro Full Stack</div>
+      <ul>
+        <li>Lidera 5+ produtos SaaS em produção: ERP multi-tenant, fintech, e-learning, on-demand e B2B commerce.</li>
+        <li>Desenvolveu o <strong>Troco Seguro</strong> — fintech com pagamentos QR, carteira digital e gestão de frotas (~180 endpoints, AES-256-GCM, CI com GitHub Actions).</li>
+        <li>Construiu o <strong>FlyPort</strong> — SaaS B2B integrado com GDS Travelport, com +5 700 testes pytest em 8 fatias CI paralelas e Django-Q com 9 tarefas em produção.</li>
+        <li>Arquitectou o <strong>MESA Platform</strong> — ERP SaaS multi-sector com isolamento por schema PostgreSQL e flavors configuráveis por tenant.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-org">AS Consulting &amp; Investments · Júlios AN</span>
+        <span class="exp-period">Mar 2023 – Jan 2026 · Luanda</span>
+      </div>
+      <div class="exp-role">Técnico Sénior de TI · Desenvolvedor Full Stack &amp; DevOps</div>
+      <ul>
+        <li>Gestão completa do parque informático: servidores, redes TCP/IP, virtualização, DNS e suporte remoto (AnyDesk).</li>
+        <li>Desenvolvimento de aplicações internas em Laravel/PHP e Node.js com deploy Docker em VPS.</li>
+        <li>Implementação e manutenção de sistemas operativos, impressoras e software aplicacional.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-org">Grupo ZonaLink &nbsp;·&nbsp; Freelance / Consultoria</span>
+        <span class="exp-period">2018 – 2024 · Luanda</span>
+      </div>
+      <div class="exp-role">Desenvolvedor PHP/Laravel · Técnico de TI</div>
+      <ul>
+        <li>Desenvolvimento de funcionalidades em PHP/Laravel no Grupo ZonaLink (Jul–Set 2024).</li>
+        <li>Suporte técnico, instalação de sistemas e consultoria de TI para clientes empresariais (2018–2023).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projectos em Destaque</h2>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <span class="proj-name">Troco Seguro — Fintech &amp; Gestão de Frotas</span>
+        <span class="proj-status">Em produção · Angola</span>
+      </div>
+      <div class="proj-stack">NestJS 11 · React · Tailwind CSS 4 · PostgreSQL · Redis · MinIO · Firebase · WhatsApp Cloud API · Docker</div>
+      <div class="proj-desc">
+        Plataforma de pagamentos (QR, Multicaixa, carteira digital) e gestão de frotas de transporte com três superfícies: app mobile, painel web e API pública Troco Pay.
+        <ul>
+          <li>Anti-replay duplo, HMAC-SHA256, AES-256-GCM, locks pessimistas com retry em deadlock, idempotência por header.</li>
+          <li>KYC via QR do BI, pânico/GPS, notificações multicanal. Jest + Playwright E2E em CI com GitHub Actions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <span class="proj-name">FlyPort — SaaS B2B para Agências de Viagens</span>
+        <span class="proj-status">flyport.tech · Em produção</span>
+      </div>
+      <div class="proj-stack">Django 6 · React 19 · PostgreSQL · Redis · Travelport GDS · Fabric.js · Docker · Nginx · Cloudflare</div>
+      <div class="proj-desc">
+        Integra GDS Travelport para ler PNRs e gerar bilhetes PDF com branding da agência via editor canvas. Modelo Trial/Starter/Pro.
+        <ul>
+          <li>+5 700 testes pytest; CI em 8 fatias paralelas; OpenAPI 3.1 do código; migração progressiva Django → SPA React 19.</li>
+          <li>Django-Q com 9 tarefas activas em produção; import-linter para fronteiras de domínio; Gunicorn/Uvicorn + Nginx.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <span class="proj-name">MESA Platform &amp; Surface Manager</span>
+        <span class="proj-status">SOMATEC · Em produção</span>
+      </div>
+      <div class="proj-stack">NestJS · SvelteKit · PostgreSQL · Redis · Prisma · Docker</div>
+      <div class="proj-desc">ERP SaaS multi-tenant para 5 sectores (farmácia, hotelaria, educação, restauração, retalho) com isolamento por schema PostgreSQL e sistema de flavors sem fork de código.</div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <span class="proj-name">Plataforma de Explicações Online &nbsp;·&nbsp; FIP — Financial Intelligence Platform &nbsp;·&nbsp; IMS / AprenderAO</span>
+        <span class="proj-status">SOMATEC</span>
+      </div>
+      <div class="proj-stack">Fastify 5 · Prisma · PgBouncer · SvelteKit · Flutter &nbsp;|&nbsp; FastAPI · Celery · Alembic · SvelteKit 2 &nbsp;|&nbsp; Next.js 16 · HeroUI · jsPDF · Playwright</div>
+      <div class="proj-desc">
+        <strong>Explicações online:</strong> ligação alunos ↔ tutores, módulos com fronteiras ESLint, contrato OpenAPI auto-gerado, Zod, Redis, MinIO.
+        &nbsp;<strong>FIP:</strong> inteligência financeira com filas Celery e frontend SvelteKit desacoplado.
+        &nbsp;<strong>IMS/AprenderAO:</strong> plataforma de ensino online com Next.js 16, geração de PDFs e testes Playwright E2E.
+      </div>
+    </div>
+
+    <div class="proj-item">
+      <div class="proj-top">
+        <span class="proj-name">SeaOPEX · Go API &nbsp;·&nbsp; Outros</span>
+        <span class="proj-status">FreteMar / Pessoal</span>
+      </div>
+      <div class="proj-stack">NestJS 10 · Next.js 14 · Prisma &nbsp;|&nbsp; Go 1.26 · Gin · PostgreSQL · MongoDB · QUIC/HTTP3</div>
+      <div class="proj-desc">
+        <strong>SeaOPEX:</strong> sistema interno de ship chandling, JWT httpOnly, proxy Next.js → NestJS.
+        &nbsp;<strong>Go API:</strong> REST em Go com Gin, dual-DB (PostgreSQL + MongoDB) e protocolo QUIC/HTTP3 (quic-go).
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Competências Técnicas</h2>
+    <div class="skills-wrap">
+      <div class="skill-row"><strong>Linguagens:</strong> TypeScript, JavaScript, Python, Go, PHP, Java, C, C++, Bash, SQL</div>
+      <div class="skill-row"><strong>Frontend:</strong> React 19, Next.js, SvelteKit 2/Svelte 5, Vite, Tailwind CSS v4, PWA</div>
+      <div class="skill-row"><strong>Backend:</strong> NestJS 11, Fastify 5, Django 6, FastAPI, Gin (Go), Laravel, Kafka, Zod</div>
+      <div class="skill-row"><strong>Mobile/Desktop:</strong> Flutter, React Native (Expo), Electron, Tauri</div>
+      <div class="skill-row"><strong>Bases de dados:</strong> PostgreSQL, Redis, MongoDB, SQLite, PgBouncer, MinIO/S3</div>
+      <div class="skill-row"><strong>ORMs:</strong> Prisma, TypeORM, Drizzle, SQLAlchemy / Alembic, Mongoose</div>
+      <div class="skill-row"><strong>DevOps:</strong> Docker, Dokploy, Nginx, Traefik, Cloudflare, GitHub Actions, VPS</div>
+      <div class="skill-row"><strong>Testes:</strong> pytest, Jest, Vitest, Playwright E2E, Celery (tarefas async)</div>
+      <div class="skill-row"><strong>Segurança:</strong> JWT, RBAC, AES-256-GCM, HMAC-SHA256, OTP, Sentry, auditoria</div>
+      <div class="skill-row"><strong>Arquitectura:</strong> SaaS multi-tenant, Clean Arch., SAGA, API-first, offline-first</div>
+      <div class="skill-row"><strong>Prog. de sistemas:</strong> POSIX, threads/mutexes, gestão de memória, C/C++</div>
+      <div class="skill-row"><strong>Ferramentas:</strong> Pacote Office, Primavera (Mkt &amp; Vendas), AnyDesk, Figma</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Formação Académica</h2>
+
+    <div class="edu-item">
+      <div class="edu-top">
+        <span class="edu-inst">42 Luanda — Escola de Engenharia de Software</span>
+        <span class="edu-period">Set 2024 – presente · ISPTEC, Talatona</span>
+      </div>
+      <div class="edu-degree">Nível <strong>5.13 / 21</strong> &nbsp;·&nbsp; Tronco Comum 57% &nbsp;·&nbsp; Metodologia peer-to-peer</div>
+      <div class="edu-detail">
+        Projectos: cub3d (280H) · minishell (210H) · Philosophers (70H) · Libft (70H) · fract-ol (60H) · get_next_line (55H) · ft_printf (55H) · NetPractice (50H) · minitalk (50H) · push_swap (50H) · Born2beroot (50H) · CPP 00–04 (70H) · Exam Rank 02–04<br>
+        <strong>Competências:</strong> C · C++ (POO, templates) · POSIX/Unix (syscalls, processos, sinais, sockets) · Algoritmos e estruturas de dados · Gráficos 2D · Redes TCP/IP · Administração de sistemas
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-top">
+        <span class="edu-inst">IPAS Zango Zero</span>
+        <span class="edu-period">2021 – 2025</span>
+      </div>
+      <div class="edu-degree">Técnico Médio em Informática de Gestão</div>
+    </div>
+  </section>
+
+  <div class="bottom-grid">
+    <section>
+      <h2>Certificações</h2>
+      <div class="certs">
+        Administração de Sistemas Linux — Udemy<br>
+        Programação Web — MundoTec<br>
+        Informática na Óptica do Utilizador — Nelpalma<br>
+        Hardware e Software — Nelpalma<br>
+        Next.js App Router Fundamentals &nbsp;·&nbsp; React Foundations for Next.js
+      </div>
+    </section>
+
+    <section>
+      <h2>Eventos &amp; Idiomas</h2>
+      <div class="events-langs">
+        <strong>Unitel Startup Summit</strong> — Mai 2024 (SOMATEC)<br>
+        <strong>Hackathon Academia BAI</strong> — Ago 2024 (SOMATEC)<br>
+        <br>
+        <strong>Português</strong> — nativo &nbsp;·&nbsp; <strong>Inglês</strong> — elementar<br>
+        <span style="color:#94a3b8;font-size:.75rem">Em exploração: Kotlin · SeaweedFS</span>
+      </div>
+    </section>
+  </div>
+
+</div>
+</body>
+</html>

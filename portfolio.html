@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ercílio Teixeira Júlio — Portfolio</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0d;
+      --surface:  #161616;
+      --card:     #1c1c1c;
+      --border:   #2a2a2a;
+      --gold:     #f59e0b;
+      --gold-dim: #92400e;
+      --text:     #e4e4e7;
+      --muted:    #71717a;
+      --tag-bg:   #27272a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,13,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: .75rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+    }
+    nav .logo { font-weight: 700; color: var(--gold); font-size: 1rem; white-space: nowrap; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    nav ul a { color: var(--muted); font-size: .85rem; transition: color .2s; }
+    nav ul a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── LAYOUT ── */
+    section { padding: 5rem 0; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+    h2.section-title {
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: .35rem; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 6rem 0 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    #hero .container { display: grid; gap: 2rem; }
+    .hero-label {
+      font-size: .8rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .hero-name {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800; line-height: 1.15;
+      margin: .4rem 0 .6rem;
+    }
+    .hero-title {
+      font-size: 1.1rem; color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+    .hero-bio {
+      max-width: 620px; color: var(--text);
+      margin-bottom: 1.8rem;
+    }
+    .hero-contacts {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+    }
+    .contact-chip {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--card); border: 1px solid var(--border);
+      padding: .4rem .9rem; border-radius: 999px;
+      font-size: .83rem; color: var(--text);
+      transition: border-color .2s;
+    }
+    .contact-chip:hover { border-color: var(--gold); text-decoration: none; }
+    .contact-chip svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── EXPERIENCE ── */
+    #experiencia { background: var(--surface); }
+    .exp-table { width: 100%; border-collapse: collapse; }
+    .exp-table th {
+      text-align: left; font-size: .75rem; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--muted);
+      padding: .6rem 1rem .6rem 0; border-bottom: 1px solid var(--border);
+    }
+    .exp-table td {
+      padding: 1rem 1rem 1rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .exp-table tr:last-child td { border-bottom: none; }
+    .exp-period { white-space: nowrap; color: var(--muted); font-size: .85rem; }
+    .exp-org { font-weight: 700; color: var(--gold); }
+    .exp-role { color: var(--text); font-size: .9rem; margin-top: .2rem; }
+    .exp-note { color: var(--muted); font-size: .82rem; margin-top: .3rem; font-style: italic; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.1rem 1.2rem;
+    }
+    .skill-card h4 {
+      font-size: .78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--gold); margin-bottom: .6rem;
+    }
+    .skill-card p { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PROJECTS ── */
+    #projectos { background: var(--surface); }
+    .projects-list { display: flex; flex-direction: column; gap: 2rem; }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+    }
+    .project-header {
+      padding: 1.4rem 1.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-wrap: wrap;
+      align-items: flex-start; justify-content: space-between; gap: .8rem;
+    }
+    .project-title { font-size: 1.15rem; font-weight: 700; }
+    .project-status {
+      font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: .25rem .65rem;
+      border-radius: 999px;
+    }
+    .status-prod { background: #14532d; color: #86efac; }
+    .status-dev  { background: #1e3a5f; color: #93c5fd; }
+    .status-client { background: #3b1f5e; color: #c4b5fd; }
+    .project-body { padding: 1.2rem 1.6rem; }
+    .project-desc { margin-bottom: 1rem; color: var(--text); }
+    .project-detail { margin-bottom: 1rem; }
+    .project-detail h4 {
+      font-size: .78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--muted); margin-bottom: .4rem;
+    }
+    .project-detail ul {
+      list-style: none; display: flex; flex-direction: column; gap: .3rem;
+    }
+    .project-detail ul li {
+      font-size: .88rem; color: var(--text);
+      padding-left: 1rem; position: relative;
+    }
+    .project-detail ul li::before {
+      content: '›'; position: absolute; left: 0; color: var(--gold);
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+    .tag {
+      background: var(--tag-bg); border: 1px solid var(--border);
+      padding: .2rem .6rem; border-radius: 4px;
+      font-size: .75rem; color: var(--muted); font-family: monospace;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.4rem 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .edu-card h3 { color: var(--gold); }
+    .edu-meta { font-size: .85rem; color: var(--muted); margin: .3rem 0 1rem; }
+    .proj-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .proj-table th {
+      text-align: left; font-size: .72rem; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--muted);
+      padding: .4rem .8rem .4rem 0; border-bottom: 1px solid var(--border);
+    }
+    .proj-table td {
+      padding: .55rem .8rem .55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .85rem; vertical-align: top;
+    }
+    .proj-table tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block; padding: .15rem .5rem;
+      border-radius: 4px; font-size: .72rem; font-weight: 600;
+    }
+    .badge-pass   { background: #14532d; color: #86efac; }
+    .badge-bonus  { background: #1e3a5f; color: #93c5fd; }
+    .badge-prog   { background: #44403c; color: #fbbf24; }
+
+    .certs { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+    .cert-chip {
+      background: var(--tag-bg); border: 1px solid var(--border);
+      padding: .3rem .8rem; border-radius: 6px;
+      font-size: .82rem; color: var(--text);
+    }
+
+    /* ── FOOTER / CONTACT ── */
+    #contacto {
+      border-top: 1px solid var(--border);
+      text-align: center; padding: 4rem 0;
+    }
+    #contacto h2 { color: var(--gold); font-size: 1.4rem; margin-bottom: 1.5rem; }
+    #contacto .hero-contacts { justify-content: center; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav ul { gap: 1rem; }
+      .exp-table thead { display: none; }
+      .exp-table td { display: block; padding: .3rem 0; }
+      .exp-table tr { display: block; padding: .8rem 0; border-bottom: 1px solid var(--border); }
+      .exp-table tr:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="logo">ETJ</span>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#competencias">Competências</a></li>
+    <li><a href="#projectos">Projectos</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#eventos">Eventos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="sobre">
+  <div class="container">
+    <p class="hero-label">Engenheiro de Software Full Stack · Luanda, Angola</p>
+    <h1 class="hero-name">Ercílio Teixeira Júlio</h1>
+    <p class="hero-title">Cofundador &amp; COO da SOMATEC · Estudante da 42 Luanda (nível 5.13)</p>
+    <p class="hero-bio">
+      Técnico de TI desde 2018 e engenheiro de software profissional desde 2023.
+      Constrói plataformas SaaS, fintech e ERP para o mercado angolano — do hardware
+      e redes até à API e interface. Colabora com a ChimGam em desenvolvimento web
+      e consultoria em TI.
+    </p>
+    <div class="hero-contacts">
+      <a class="contact-chip" href="mailto:erciliociu@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        erciliociu@gmail.com
+      </a>
+      <a class="contact-chip" href="tel:+244973087388">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +244 973 087 388
+      </a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/erciliojulio" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/erciliojulio
+      </a>
+      <a class="contact-chip" href="https://github.com/ErCiLio2" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        github.com/ErCiLio2
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA -->
+<section id="experiencia">
+  <div class="container">
+    <h2 class="section-title">Experiência Profissional</h2>
+    <table class="exp-table">
+      <thead>
+        <tr>
+          <th>Período</th>
+          <th>Organização</th>
+          <th>Função</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="exp-period">Jan 2023 – presente</td>
+          <td>
+            <div class="exp-org">SOMATEC</div>
+            <div class="exp-role">Software Marketing e Tecnologia</div>
+          </td>
+          <td>
+            <div class="exp-role">Cofundador e COO</div>
+            <div class="exp-note">Direcção técnica e operacional de produtos SaaS, fintech e ERP para o mercado angolano. Coordenação de equipas, propostas comerciais, contratos e especificações técnicas.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="exp-period">2024 – 2026</td>
+          <td>
+            <div class="exp-org">Júlios AN</div>
+            <div class="exp-role">Comércio Geral e Transportes, Lda</div>
+          </td>
+          <td>
+            <div class="exp-role">Técnico Sénior de TI · Full Stack · DevOps</div>
+            <div class="exp-note">Em simultâneo com a AS Consulting. Gestão do parque informático, desenvolvimento de software e implantação de sistemas em produção.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="exp-period">Mar 2023 – Jan 2026</td>
+          <td>
+            <div class="exp-org">AS Consulting &amp; Investments</div>
+          </td>
+          <td>
+            <div class="exp-role">Técnico Sénior de TI · Full Stack · DevOps</div>
+            <div class="exp-note">Responsável por todo o parque informático, desenvolvimento de software e implantação e manutenção dos sistemas em produção.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="exp-period">Jul – Set 2024</td>
+          <td>
+            <div class="exp-org">Grupo ZonaLink</div>
+          </td>
+          <td>
+            <div class="exp-role">Desenvolvimento de software</div>
+            <div class="exp-note">PHP / Laravel</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="exp-period">2018 – 2023</td>
+          <td>
+            <div class="exp-org">Freelance</div>
+          </td>
+          <td>
+            <div class="exp-role">Técnico de TI e consultoria</div>
+            <div class="exp-note">Suporte de hardware, redes e sistemas.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- COMPETÊNCIAS -->
+<section id="competencias">
+  <div class="container">
+    <h2 class="section-title">Competências Técnicas</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Linguagens</h4>
+        <p>TypeScript, JavaScript, PHP, Python, Java, Go, C, C++, SQL, HTML5, CSS3, Bash</p>
+      </div>
+      <div class="skill-card">
+        <h4>Frontend</h4>
+        <p>React, Next.js (App Router), SvelteKit, Vite, Tailwind CSS v3/v4, Zustand, PWA, offline-first, Figma→código, WCAG 2.2</p>
+      </div>
+      <div class="skill-card">
+        <h4>Backend</h4>
+        <p>NestJS, Fastify, Laravel, Django, FastAPI, Node.js, REST, microserviços, Kafka, Zod</p>
+      </div>
+      <div class="skill-card">
+        <h4>Mobile e Desktop</h4>
+        <p>Flutter, React Native (Expo), Electron (IPC, contextBridge, NSIS), Tauri</p>
+      </div>
+      <div class="skill-card">
+        <h4>Bases de dados</h4>
+        <p>PostgreSQL, MySQL, MongoDB, SQLite, Redis · Prisma, Drizzle, TypeORM, Mongoose · MinIO/S3, Vercel Blob</p>
+      </div>
+      <div class="skill-card">
+        <h4>DevOps e Infra</h4>
+        <p>Docker, Docker Compose, Dokploy, Traefik, VPS, domínios .ao, SSL, GitHub Actions, backups, monitorização</p>
+      </div>
+      <div class="skill-card">
+        <h4>Integrações</h4>
+        <p>WhatsApp Cloud API, OTP/verificação, PDF (WeasyPrint, jsPDF), QR codes, OCR (PaddleOCR), LiveKit, Bunny Stream</p>
+      </div>
+      <div class="skill-card">
+        <h4>Arquitectura</h4>
+        <p>SaaS multi-tenant, Clean Architecture, API-first, offline-first, RBAC, SAGA, documentação técnica</p>
+      </div>
+      <div class="skill-card">
+        <h4>Segurança</h4>
+        <p>JWT, RBAC, OTP, HMAC-SHA256, AES-256-GCM, auditorias, cibersegurança OT/SCADA, CSIRT/CERT</p>
+      </div>
+      <div class="skill-card">
+        <h4>Programação de sistemas</h4>
+        <p>Syscalls POSIX, sinais Unix, threads e mutexes, gestão de memória, parsers, listas ligadas, árvores, raycasting, fractais</p>
+      </div>
+      <div class="skill-card">
+        <h4>Suporte de TI</h4>
+        <p>Parque informático empresarial, hardware, Linux, virtualização, redes TCP/IP, DNS, impressoras, instalação de SO/SA, AnyDesk</p>
+      </div>
+      <div class="skill-card">
+        <h4>Ferramentas de negócio</h4>
+        <p>Pacote Office (Word, Excel, PowerPoint), Primavera (Marketing e Vendas), AnyDesk</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTOS -->
+<section id="projectos">
+  <div class="container">
+    <h2 class="section-title">Portfolio de Projectos</h2>
+    <div class="projects-list">
+
+      <!-- MESA -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">MESA Platform &amp; Surface Manager</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">NestJS</span><span class="tag">SvelteKit</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Prisma</span>
+            </div>
+          </div>
+          <span class="project-status status-prod">SOMATEC · Em produção</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">ERP SaaS multi-tenant para o mercado angolano, com suporte a múltiplos sectores: farmácia, hotelaria, educação, restauração e retalho. Cada sector tem o seu <em>flavor</em> — tema visual, módulos activos e regras de negócio próprias — partilhando a mesma base de código e infraestrutura.</p>
+          <div class="project-detail">
+            <h4>Decisões de arquitectura</h4>
+            <ul>
+              <li>Arquitectura multi-tenant com isolamento por schema PostgreSQL por tenant</li>
+              <li>Sistema de <em>flavors</em>: tokens de design e módulos activos configurados por sector, sem fork de código</li>
+              <li>Surface Manager separa o plano de administração SaaS do espaço do cliente — gestão de múltiplas subscrições a partir de um único painel</li>
+              <li>Auditorias de UI periódicas para garantir paridade entre sectores</li>
+            </ul>
+          </div>
+          <div class="project-detail">
+            <h4>Resultado</h4>
+            <ul>
+              <li>Plataforma activa com clientes em múltiplos sectores em Luanda</li>
+              <li>Tempo de onboarding de novo sector reduzido para configuração, sem desenvolvimento adicional</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TROCO SEGURO -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Troco Seguro — Fintech e Mobilidade</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">NestJS 11</span><span class="tag">React</span><span class="tag">Vite</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">MinIO</span><span class="tag">Firebase</span><span class="tag">Docker</span><span class="tag">WhatsApp API</span>
+            </div>
+          </div>
+          <span class="project-status status-prod">Em produção · Angola</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Plataforma completa de pagamentos e gestão de frotas de transporte para Angola. Três superfícies: app mobile (motorista e passageiro), painel web (admin + gestor de frota) e API pública Troco Pay para integrações externas.</p>
+          <div class="project-detail">
+            <h4>Funcionalidades chave</h4>
+            <ul>
+              <li>Pagamentos por QR code em dois sentidos: passageiro escaneia motorista e motorista escaneia cartão virtual do passageiro</li>
+              <li>Anti-replay duplo: Redis (TTL 5 min) + tabela de tokens usados — impossível pagar duas vezes com o mesmo QR</li>
+              <li>Depósitos via Multicaixa Express com webhook HMAC-SHA256; levantamentos com lock pessimista e retry automático em deadlock</li>
+              <li>KYC automatizado via QR do Bilhete de Identidade; convites de motoristas para frotas com notificação in-app e push</li>
+              <li>Sistema de pânico/GPS, gestão de frotas e motoristas, notificações multicanal (in-app, push FCM, SMS)</li>
+              <li>Integração WhatsApp Cloud API para comunicações operacionais</li>
+            </ul>
+          </div>
+          <div class="project-detail">
+            <h4>Arquitectura e segurança</h4>
+            <ul>
+              <li>~180 endpoints REST documentados com Swagger; autenticação JWT + refresh silencioso (HttpOnly cookies)</li>
+              <li>Encriptação AES-256-GCM em campos sensíveis; padrão de idempotência para escritas críticas</li>
+              <li>Locks pessimistas com retry exponencial em SQLSTATE 40P01 (deadlock) e 55P03 (lock timeout)</li>
+              <li>Testes: Jest (unitários) + Playwright (E2E de UI e API); CI com GitHub Actions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLYPORT -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">FlyPort — SaaS B2B para Agências de Viagens</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">Django 6</span><span class="tag">React 19</span><span class="tag">Vite</span><span class="tag">Tailwind 4</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Fabric.js</span><span class="tag">Travelport GDS</span>
+            </div>
+          </div>
+          <span class="project-status status-prod">flyport.tech · Em produção</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Plataforma SaaS B2B para agências de viagens em Angola. Integra o GDS Travelport para extrair itinerários de PNRs e gera bilhetes electrónicos em PDF com o branding de cada agência, através de um editor visual em canvas. Modelo de subscrição Trial / Starter / Professional.</p>
+          <div class="project-detail">
+            <h4>Decisões de arquitectura</h4>
+            <ul>
+              <li>Backend Django 6 organizado por domínios com fronteiras impostas por import-linter — nenhum domínio acede directamente a outro</li>
+              <li>Migração progressiva de templates Django para SPA React 19 — D7: cada rota migrada remove o template Django no mesmo commit</li>
+              <li>Editor de bilhetes em Fabric.js 5.4 com blocos obrigatórios por lei angolana</li>
+              <li>Agendador Django-Q com 9 tarefas activas em produção (alertas de subscrição, voos, facturação, WhatsApp)</li>
+            </ul>
+          </div>
+          <div class="project-detail">
+            <h4>Qualidade e escala</h4>
+            <ul>
+              <li>~5 700 testes automatizados (pytest); CI em 8 fatias paralelas — ~26 min de suite completa</li>
+              <li>Pipeline CI/CD: GitHub Actions → build Docker → deploy manual na VPS Contabo</li>
+              <li>Nginx + Cloudflare + SSL; Gunicorn/Uvicorn; OpenAPI 3.1 gerado do código</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUKA -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Eduka — Plataforma de Explicações Online</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">Fastify 5</span><span class="tag">Prisma</span><span class="tag">PostgreSQL 16</span><span class="tag">PgBouncer</span><span class="tag">Redis</span><span class="tag">MinIO</span><span class="tag">SvelteKit</span><span class="tag">Flutter</span>
+            </div>
+          </div>
+          <span class="project-status status-client">SOMATEC · Cliente: Helder Teixeira Congo</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Plataforma de ligação entre alunos e tutores para o mercado angolano. Foco em segurança reforçada: há menores como utilizadores, dados sensíveis de tutores (registo criminal, passaporte) e pagamentos.</p>
+          <div class="project-detail">
+            <h4>Arquitectura</h4>
+            <ul>
+              <li>Módulos: auth, tutors, guardians, bookings, payments, reputation, admin, activity — com fronteiras ESLint entre eles</li>
+              <li>Contrato OpenAPI gerado do código; tipos TypeScript derivados automaticamente (nunca editados à mão)</li>
+              <li>PostgreSQL 16 com PgBouncer (connection pooling, limite 10); Redis para cache; MinIO para documentos sensíveis</li>
+              <li>Bus de eventos interno para comunicação entre módulos — evita acoplamento directo</li>
+            </ul>
+          </div>
+          <div class="project-detail">
+            <h4>Plano de expansão</h4>
+            <ul>
+              <li>Backoffice SvelteKit em desenvolvimento</li>
+              <li>App mobile Flutter planeada para alunos e tutores</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- iUCONECT -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">iUConect — Plataforma de Serviços On-Demand</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">React Native</span><span class="tag">RBAC</span><span class="tag">OTP</span>
+            </div>
+          </div>
+          <span class="project-status status-dev">SOMATEC · Em desenvolvimento</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Plataforma on-demand com quatro verticais de serviço. Arquitectura RBAC de dois planos — plano de administração da plataforma separado do plano do cliente.</p>
+          <div class="project-detail">
+            <h4>Funcionalidades</h4>
+            <ul>
+              <li>Autenticação OTP via SMS para verificação de identidade</li>
+              <li>Quatro verticais independentes com lógica de negócio própria, partilhando autenticação e pagamentos</li>
+              <li>RBAC granular: separação entre administração da plataforma e espaço do prestador de serviços</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIP -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">FIP — Financial Intelligence Platform</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">FastAPI</span><span class="tag">Celery</span><span class="tag">SvelteKit 2</span><span class="tag">Svelte 5</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">MinIO</span><span class="tag">Alembic</span>
+            </div>
+          </div>
+          <span class="project-status status-dev">Em desenvolvimento</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Plataforma de inteligência financeira com backend Python assíncrono e frontend SvelteKit com landing page pública e dashboard autenticado.</p>
+          <div class="project-detail">
+            <h4>Stack e arquitectura</h4>
+            <ul>
+              <li>FastAPI com processamento assíncrono de dados financeiros via Celery + Redis</li>
+              <li>SvelteKit 2 + Svelte 5 (runes) + Tailwind CSS — frontend totalmente desacoplado do backend</li>
+              <li>Migrações por Alembic; armazenamento de ficheiros em MinIO</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEAOPEX -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">SeaOPEX — Sistema de Ship Chandling</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">NestJS 10</span><span class="tag">Next.js 14</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">TypeScript</span>
+            </div>
+          </div>
+          <span class="project-status status-client">Cliente: FreteMar / GOUV ESTÚDIO</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">Sistema operacional interno para empresa de Ship Chandling. Monorepo com API NestJS e frontend Next.js 14 (App Router).</p>
+          <div class="project-detail">
+            <h4>Detalhe técnico</h4>
+            <ul>
+              <li>Autenticação JWT com refresh token em httpOnly cookie (15 min access / 7 dias refresh)</li>
+              <li>Proxy Next.js → NestJS sem necessidade de CORS em desenvolvimento</li>
+              <li>Prisma ORM com PostgreSQL; migrações versionadas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- GO API -->
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-title">Go API — REST com QUIC/HTTP3</div>
+            <div class="tags" style="margin-top:.4rem">
+              <span class="tag">Go 1.26</span><span class="tag">Gin</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">QUIC</span><span class="tag">HTTP3</span>
+            </div>
+          </div>
+          <span class="project-status status-dev">Exploração técnica</span>
+        </div>
+        <div class="project-body">
+          <p class="project-desc">API REST em Go com o framework Gin, suporte dual a PostgreSQL e MongoDB, e protocolo QUIC/HTTP3 via quic-go — exploração de transporte de nova geração para APIs de alta performance.</p>
+        </div>
+      </div>
+
+    </div><!-- /projects-list -->
+  </div>
+</section>
+
+<!-- FORMAÇÃO -->
+<section id="formacao">
+  <div class="container">
+    <h2 class="section-title">Formação</h2>
+
+    <div class="edu-card">
+      <h3>42 Luanda — Escola de Engenharia de Software</h3>
+      <p class="edu-meta">Setembro 2024 – presente · ISPTEC, Talatona, Luanda · <strong style="color:var(--gold)">Nível 5.13 / 21</strong> · Tronco Comum 57%</p>
+      <p style="font-size:.9rem;color:var(--muted);margin-bottom:.8rem">Formação por aprendizagem entre pares (peer-to-peer), sem professores nem aulas tradicionais. Projectos práticos avaliados pelos pares.</p>
+      <table class="proj-table">
+        <thead>
+          <tr><th>Projecto</th><th>Horas</th><th>Resultado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>cub3d — raycasting, motor 3D estilo Wolfenstein</td><td>280H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>minishell — shell completa com GNU Readline</td><td>210H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>Philosophers — concorrência: threads e processos</td><td>70H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>Libft — biblioteca C de raiz</td><td>70H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>fract-ol — gráficos 2D, fractais, miniLibX</td><td>60H</td><td><span class="badge badge-bonus">Pass + bónus</span></td></tr>
+          <tr><td>NetPractice — redes TCP/IP, sub-redes, routing</td><td>50H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>minitalk — comunicação por sinais UNIX</td><td>50H</td><td><span class="badge badge-bonus">Pass + bónus</span></td></tr>
+          <tr><td>Born2beroot — virtualização e administração de sistemas</td><td>50H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>push_swap — algoritmos de ordenação em pilha</td><td>50H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>get_next_line</td><td>55H</td><td><span class="badge badge-bonus">Pass + bónus</span></td></tr>
+          <tr><td>ft_printf — funções variádicas</td><td>55H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>CPP Módulos 00–04 — POO em C++</td><td>70H</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>Exam Rank 02, 03, 04</td><td>—</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td>CPP Módulo 05</td><td>25H</td><td><span class="badge badge-prog">Em progresso</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="edu-card">
+      <h3>Técnico Médio em Informática de Gestão</h3>
+      <p class="edu-meta">IPAS Zango Zero · 2021 – 2025</p>
+    </div>
+
+    <div class="edu-card">
+      <h3>Certificações e Cursos</h3>
+      <div class="certs">
+        <span class="cert-chip">Programação Web — MundoTec</span>
+        <span class="cert-chip">Informática na Óptica do Utilizador — Nelpalma</span>
+        <span class="cert-chip">Hardware e Software — Nelpalma</span>
+        <span class="cert-chip">Administração de Sistemas Linux — Udemy</span>
+        <span class="cert-chip">Next.js App Router Fundamentals</span>
+        <span class="cert-chip">React Foundations for Next.js</span>
+        <span class="cert-chip">LinkedIn para Busca de Oportunidades</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EVENTOS -->
+<section id="eventos">
+  <div class="container">
+    <h2 class="section-title">Eventos e Participações</h2>
+    <div class="edu-card">
+      <table class="exp-table">
+        <thead>
+          <tr><th>Data</th><th>Evento</th><th>Representação</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="white-space:nowrap;color:var(--muted)">16–18 Mai 2024</td>
+            <td><strong>Unitel Startup Summit</strong> <span style="color:var(--muted)">— by Unitel</span></td>
+            <td><span style="color:var(--gold)">SOMATEC</span></td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap;color:var(--muted)">31 Ago 2024</td>
+            <td><strong>Hackathon Academia BAI</strong></td>
+            <td><span style="color:var(--gold)">SOMATEC</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <h2 style="color:var(--gold);font-size:1.4rem;margin-bottom:1.5rem">Vamos conversar</h2>
+    <div class="hero-contacts" style="justify-content:center">
+      <a class="contact-chip" href="mailto:erciliociu@gmail.com">erciliociu@gmail.com</a>
+      <a class="contact-chip" href="tel:+244973087388">+244 973 087 388</a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/erciliojulio" target="_blank">LinkedIn</a>
+      <a class="contact-chip" href="https://github.com/ErCiLio2" target="_blank">GitHub</a>
+    </div>
+    <p style="margin-top:2.5rem;font-size:.8rem;color:var(--muted)">© 2026 Ercílio Teixeira Júlio</p>
+  </div>
+</section>
+
+</body>
+</html>
