@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ercílio Teixeira Júlio — CV 2026</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0F2240;
+  --navy-mid:  #1B3260;
+  --blue:      #1D4ED8;
+  --blue-dim:  #EFF6FF;
+  --teal:      #0D9488;
+  --green:     #16A34A;
+  --text:      #1E293B;
+  --muted:     #64748B;
+  --line:      #E2E8F0;
+  --s-text:    #E2E8F0;
+  --s-muted:   #94A3B8;
+  --s-accent:  #93C5FD;
+}
+
+html { font-size: 9pt; }
+
+body {
+  font-family: 'Segoe UI', 'Calibri', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.5;
+}
+
+.cv-wrap {
+  display: grid;
+  grid-template-columns: 205px 1fr;
+  max-width: 210mm;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ───────────────────────────────────────── */
+.sidebar {
+  background: var(--navy);
+  color: var(--s-text);
+  padding: 1.6rem 1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.s-name { font-size: 1.25rem; font-weight: 700; letter-spacing: -.02em; color: #fff; line-height: 1.2; }
+.s-title { font-size: .73rem; color: var(--s-accent); font-weight: 500; margin-top: .25rem; line-height: 1.4; }
+
+.s-sec h3 {
+  font-size: .58rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .14em; color: var(--s-accent);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  padding-bottom: .2rem; margin-bottom: .45rem;
+}
+
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: .2rem; }
+.contact-list li { font-size: .73rem; color: var(--s-muted); line-height: 1.4; word-break: break-all; }
+.contact-list a { color: var(--s-accent); text-decoration: none; }
+
+.skill-cat { margin-bottom: .5rem; }
+.skill-cat:last-child { margin-bottom: 0; }
+.skill-cat-label { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: rgba(255,255,255,.4); margin-bottom: .2rem; }
+.pills { display: flex; flex-wrap: wrap; gap: .15rem; }
+.pill { background: rgba(255,255,255,.1); color: #CBD5E1; font-size: .67rem; padding: .1rem .35rem; border-radius: 3px; line-height: 1.45; white-space: nowrap; }
+.pill.hi { background: rgba(147,197,253,.18); color: var(--s-accent); }
+
+.edu-side { margin-bottom: .5rem; }
+.edu-side:last-child { margin-bottom: 0; }
+.edu-inst { font-size: .77rem; font-weight: 700; color: #fff; }
+.edu-period { font-size: .67rem; color: var(--s-muted); }
+.edu-degree { font-size: .71rem; color: #CBD5E1; margin-top: .04rem; }
+.edu-level { font-size: .67rem; color: var(--s-accent); font-weight: 600; }
+
+.cert-list { list-style: none; display: flex; flex-direction: column; gap: .15rem; }
+.cert-list li { font-size: .71rem; color: #CBD5E1; line-height: 1.4; }
+.cert-list li .issuer { color: var(--s-muted); font-size: .65rem; }
+
+.event-list { list-style: none; display: flex; flex-direction: column; gap: .2rem; }
+.event-list li { font-size: .71rem; color: #CBD5E1; }
+.event-list li strong { color: #fff; font-weight: 600; }
+.event-list li small { display: block; color: var(--s-muted); font-size: .65rem; }
+
+.lang-list { list-style: none; display: flex; flex-direction: column; gap: .18rem; }
+.lang-list li { font-size: .73rem; color: #CBD5E1; }
+.lang-list li strong { color: #fff; }
+
+/* ── MAIN ──────────────────────────────────────────── */
+.main { padding: 1.4rem 1.5rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: .8rem; }
+
+.main h2 {
+  font-size: .6rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .14em; color: var(--blue);
+  border-left: 3px solid var(--blue); padding-left: .45rem;
+  margin-bottom: .45rem;
+}
+
+.summary p { font-size: .84rem; line-height: 1.65; color: var(--text); }
+
+.exp-item { padding-bottom: .55rem; margin-bottom: .55rem; border-bottom: 1px solid var(--line); }
+.exp-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.exp-row { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.exp-org { font-weight: 700; font-size: .87rem; color: var(--navy); }
+.exp-period { font-size: .7rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+.exp-role { font-size: .78rem; color: var(--teal); font-weight: 600; margin: .06rem 0 .2rem; }
+.exp-item ul { padding-left: .9rem; }
+.exp-item ul li { list-style: disc; font-size: .79rem; color: var(--text); margin-bottom: .07rem; line-height: 1.5; }
+.exp-item ul li strong { color: var(--navy); }
+
+.proj-item { margin-bottom: .5rem; }
+.proj-item:last-child { margin-bottom: 0; }
+.proj-row { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.proj-name { font-weight: 700; font-size: .84rem; color: var(--navy); }
+.proj-badge { font-size: .66rem; color: var(--green); background: #F0FDF4; border: 1px solid #BBF7D0; padding: .05rem .28rem; border-radius: 3px; white-space: nowrap; flex-shrink: 0; font-weight: 600; }
+
+.proj-stack { margin: .07rem 0; display: flex; flex-wrap: wrap; gap: .12rem; }
+.tech-tag { display: inline-block; background: var(--blue-dim); color: var(--blue); font-size: .65rem; font-weight: 500; padding: .05rem .28rem; border-radius: 3px; line-height: 1.4; }
+
+.proj-desc { font-size: .78rem; color: var(--text); line-height: 1.5; }
+.proj-desc ul { padding-left: .85rem; margin-top: .07rem; }
+.proj-desc ul li { list-style: disc; margin-bottom: .04rem; }
+
+.section-divider { height: 1px; background: var(--line); margin: 0; }
+
+@page { size: A4; margin: 0; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cv-wrap { min-height: unset; }
+  .exp-item, .proj-item { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="cv-wrap">
+
+  <!-- ═══════════════ SIDEBAR ═══════════════ -->
+  <aside class="sidebar">
+
+    <div>
+      <div class="s-name">Ercílio Teixeira Júlio</div>
+      <div class="s-title">Full Stack Software Engineer<br>Co-founder &amp; COO · SOMATEC</div>
+    </div>
+
+    <div class="s-sec">
+      <h3>Contact</h3>
+      <ul class="contact-list">
+        <li><a href="mailto:erciliociu@gmail.com">erciliociu@gmail.com</a></li>
+        <li>+244 973 087 388</li>
+        <li>Luanda, Angola</li>
+        <li><a href="https://linkedin.com/in/erciliojulio">linkedin.com/in/erciliojulio</a></li>
+        <li><a href="https://github.com/ErCiLio2">github.com/ErCiLio2</a></li>
+        <li><a href="https://erciliodev.netlify.app">erciliodev.netlify.app</a></li>
+      </ul>
+    </div>
+
+    <div class="s-sec">
+      <h3>Skills</h3>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Languages</div>
+        <div class="pills">
+          <span class="pill hi">TypeScript</span><span class="pill hi">Python</span><span class="pill hi">Go</span>
+          <span class="pill">JavaScript</span><span class="pill">PHP</span><span class="pill">Java</span>
+          <span class="pill">C / C++</span><span class="pill">Bash</span><span class="pill">SQL</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Frontend</div>
+        <div class="pills">
+          <span class="pill hi">React 19</span><span class="pill hi">Next.js</span>
+          <span class="pill">SvelteKit</span><span class="pill">Vite</span>
+          <span class="pill">Tailwind v4</span><span class="pill">PWA</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Backend</div>
+        <div class="pills">
+          <span class="pill hi">NestJS 11</span><span class="pill hi">Django 6</span>
+          <span class="pill">Fastify</span><span class="pill">FastAPI</span>
+          <span class="pill">Gin (Go)</span><span class="pill">Laravel</span><span class="pill">Kafka</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Databases &amp; ORMs</div>
+        <div class="pills">
+          <span class="pill hi">PostgreSQL</span><span class="pill hi">Redis</span>
+          <span class="pill">MongoDB</span><span class="pill">MySQL</span><span class="pill">SQLite</span>
+          <span class="pill">PgBouncer</span><span class="pill">MinIO/S3</span>
+        </div>
+        <div class="pills" style="margin-top:.15rem">
+          <span class="pill">Prisma</span><span class="pill">TypeORM</span>
+          <span class="pill">Drizzle</span><span class="pill">SQLAlchemy</span><span class="pill">Mongoose</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">DevOps &amp; Infra</div>
+        <div class="pills">
+          <span class="pill hi">Docker</span><span class="pill">Nginx</span><span class="pill">Traefik</span>
+          <span class="pill">Cloudflare</span><span class="pill">GitHub Actions</span><span class="pill">VPS</span><span class="pill">Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Testing &amp; Quality</div>
+        <div class="pills">
+          <span class="pill">pytest</span><span class="pill">Jest</span><span class="pill">Vitest</span>
+          <span class="pill">Playwright E2E</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Mobile / Desktop</div>
+        <div class="pills">
+          <span class="pill">Flutter</span><span class="pill">React Native</span>
+          <span class="pill">Electron</span><span class="pill">Tauri</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-label">Security &amp; Architecture</div>
+        <div class="pills">
+          <span class="pill">JWT / RBAC</span><span class="pill">AES-256-GCM</span>
+          <span class="pill">HMAC-SHA256</span><span class="pill">OTP</span>
+          <span class="pill">SaaS multi-tenant</span><span class="pill">API-first</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="s-sec">
+      <h3>Education</h3>
+      <div class="edu-side">
+        <div class="edu-inst">42 Luanda</div>
+        <div class="edu-period">Sep 2024 – present · ISPTEC</div>
+        <div class="edu-degree">Software Engineering</div>
+        <div class="edu-level">Level 5.13 / 21 · Core 57%</div>
+      </div>
+      <div class="edu-side">
+        <div class="edu-inst">IPAS Zango Zero</div>
+        <div class="edu-period">2021 – 2025</div>
+        <div class="edu-degree">Technical Diploma in IT Management</div>
+      </div>
+    </div>
+
+    <div class="s-sec">
+      <h3>Certifications</h3>
+      <ul class="cert-list">
+        <li>Linux Systems Administration <span class="issuer">· Udemy</span></li>
+        <li>Web Programming <span class="issuer">· MundoTec</span></li>
+        <li>React Foundations for Next.js <span class="issuer">· Vercel</span></li>
+        <li>Next.js App Router Fundamentals <span class="issuer">· Vercel</span></li>
+        <li>IT for End Users <span class="issuer">· Nelpalma</span></li>
+        <li>Hardware and Software <span class="issuer">· Nelpalma</span></li>
+      </ul>
+    </div>
+
+    <div class="s-sec">
+      <h3>Events</h3>
+      <ul class="event-list">
+        <li><strong>Unitel Startup Summit</strong><small>May 2024 · SOMATEC</small></li>
+        <li><strong>Hackathon Academia BAI</strong><small>Aug 2024 · SOMATEC</small></li>
+      </ul>
+    </div>
+
+    <div class="s-sec">
+      <h3>Languages</h3>
+      <ul class="lang-list">
+        <li><strong>Portuguese</strong> — native</li>
+        <li><strong>English</strong> — elementary</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════ MAIN ═══════════════ -->
+  <main class="main">
+
+    <section class="summary">
+      <h2>Professional Summary</h2>
+      <p>Full Stack Engineer and Senior IT Technician with over <strong>8 years in IT</strong> and <strong>3 years of professional software development</strong>. Co-founder and COO of SOMATEC, leading the delivery of SaaS, fintech and ERP platforms for the Angolan market — from infrastructure to interface. Built payment systems with QR verification, anti-fraud protection, KYC and AES-256-GCM encryption, with knowledge of Angola's legal framework (Law 22/11, AML/KYC, BNA). Specialized in multi-tenant architectures, high-availability APIs and GDS integrations. Systems programming background at <strong>42 Luanda</strong> (level 5.13/21).</p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <span class="exp-org">SOMATEC — Software Marketing e Tecnologia</span>
+          <span class="exp-period">Jan 2023 – present · Luanda</span>
+        </div>
+        <div class="exp-role">Co-founder &amp; COO · Senior Full Stack Engineer</div>
+        <ul>
+          <li>Leading delivery of <strong>5+ SaaS products</strong> in production: multi-tenant ERP, fintech, e-learning, on-demand and B2B commerce.</li>
+          <li>Built a fintech platform with QR payments, digital wallet and fleet management (~180 endpoints, AES-256-GCM, CI with GitHub Actions).</li>
+          <li>Architected <strong>MESA Platform</strong> — multi-sector SaaS ERP with per-schema PostgreSQL isolation and configurable tenant flavors without code forking.</li>
+          <li>Built <strong>WOL Commerce</strong> — B2B and live commerce platform in production, with in-house analytics and centralised media in MinIO.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <span class="exp-org">ChimGam</span>
+          <span class="exp-period">2024 – present · Luanda</span>
+        </div>
+        <div class="exp-role">QA Engineer · Tech Leader</div>
+        <ul>
+          <li>QA and technical leadership on <strong>FlyPort</strong> — B2B SaaS for travel agencies integrated with Travelport GDS.</li>
+          <li>+5,700 pytest tests in parallel CI; OpenAPI 3.1 generated from code; Django-Q with 9 active tasks in production.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <span class="exp-org">AS Consulting &amp; Investments · Júlios AN</span>
+          <span class="exp-period">Mar 2023 – Jan 2026 · Luanda</span>
+        </div>
+        <div class="exp-role">Senior IT Technician · Full Stack Developer &amp; DevOps</div>
+        <ul>
+          <li>Full IT fleet management: servers, TCP/IP networking, virtualisation, DNS and remote support.</li>
+          <li>Developed internal applications in Laravel/PHP and Node.js with Docker deployments on VPS.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-row">
+          <span class="exp-org">Grupo ZonaLink · Freelance / Consulting</span>
+          <span class="exp-period">2018 – 2024 · Luanda</span>
+        </div>
+        <div class="exp-role">PHP/Laravel Developer · IT Technician</div>
+        <ul>
+          <li>Feature development in PHP/Laravel at Grupo ZonaLink (Jul–Sep 2024).</li>
+          <li>Technical support, system installation and IT consulting for enterprise clients (2018–2023).</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section>
+      <h2>Featured Projects</h2>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-name">Fintech &amp; Fleet Management Platform</span>
+          <span class="proj-badge">In production · Angola</span>
+        </div>
+        <div class="proj-stack">
+          <span class="tech-tag">NestJS 11</span><span class="tech-tag">React</span><span class="tech-tag">Tailwind v4</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">MinIO</span><span class="tech-tag">Firebase</span><span class="tech-tag">WhatsApp API</span><span class="tech-tag">Docker</span>
+        </div>
+        <div class="proj-desc">
+          Digital payments (QR, Multicaixa, wallet) and transport fleet management — mobile app, web dashboard and public API.
+          <ul>
+            <li>Double anti-replay, HMAC-SHA256, AES-256-GCM, pessimistic locks with deadlock retry, idempotency by header.</li>
+            <li>KYC via national ID QR, panic/GPS, multi-channel notifications. Jest + Playwright E2E in CI. Compliance with Law 22/11 / AML/KYC.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-name">FlyPort — B2B SaaS for Travel Agencies</span>
+          <span class="proj-badge">flyport.tech · ChimGam</span>
+        </div>
+        <div class="proj-stack">
+          <span class="tech-tag">Django 6</span><span class="tech-tag">React 19</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Travelport GDS</span><span class="tech-tag">Fabric.js</span><span class="tech-tag">Nginx</span><span class="tech-tag">Cloudflare</span>
+        </div>
+        <div class="proj-desc">
+          Travelport GDS integration for PNR reading and PDF ticket generation with agency branding. <em>Role: QA Engineer → Tech Leader.</em>
+          <ul>
+            <li>+5,700 pytest tests; CI in 8 parallel slices; OpenAPI 3.1 from code; progressive Django → React 19 SPA migration.</li>
+            <li>Django-Q with 9 active production tasks; import-linter for domain boundaries; Gunicorn/Uvicorn + Nginx.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-name">MESA Platform &amp; Surface Manager</span>
+          <span class="proj-badge">In production · SOMATEC</span>
+        </div>
+        <div class="proj-stack">
+          <span class="tech-tag">NestJS</span><span class="tech-tag">SvelteKit</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Prisma</span><span class="tech-tag">Docker</span>
+        </div>
+        <div class="proj-desc">Multi-tenant SaaS ERP for 5 sectors (pharmacy, hospitality, education, restaurants, retail). Per-schema PostgreSQL isolation and configurable tenant flavors without code forking.</div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-name">WOL Commerce · Online Tutoring Platform · FIP</span>
+          <span class="proj-badge">Production · SOMATEC</span>
+        </div>
+        <div class="proj-stack">
+          <span class="tech-tag">NestJS</span><span class="tech-tag">React</span><span class="tech-tag">MinIO</span><span class="tech-tag">Fastify</span><span class="tech-tag">Prisma</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Celery</span><span class="tech-tag">SvelteKit</span>
+        </div>
+        <div class="proj-desc"><strong>WOL Commerce:</strong> B2B and live commerce platform with in-house analytics and centralised media in MinIO. &nbsp;<strong>Tutoring:</strong> student ↔ tutor matching with auto-generated OpenAPI, Zod and Redis. &nbsp;<strong>FIP:</strong> financial intelligence with Celery queues and decoupled SvelteKit frontend.</div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-row">
+          <span class="proj-name">SeaOPEX · Go REST API · IMS/AprenderAO</span>
+          <span class="proj-badge">FreteMar / Personal</span>
+        </div>
+        <div class="proj-stack">
+          <span class="tech-tag">NestJS</span><span class="tech-tag">Next.js 14</span><span class="tech-tag">Prisma</span><span class="tech-tag">Go · Gin</span><span class="tech-tag">MongoDB</span><span class="tech-tag">QUIC/HTTP3</span><span class="tech-tag">Next.js 16</span><span class="tech-tag">Playwright</span>
+        </div>
+        <div class="proj-desc"><strong>SeaOPEX:</strong> ship chandling management with JWT httpOnly and Next.js → NestJS proxy. &nbsp;<strong>Go API:</strong> dual-DB REST (PostgreSQL + MongoDB) with QUIC/HTTP3 protocol. &nbsp;<strong>IMS/AprenderAO:</strong> e-learning platform with PDF generation and Playwright E2E tests.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
